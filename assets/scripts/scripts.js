@@ -1,7 +1,7 @@
 // Global Variables
 // =====================================================
 // Create an array of Words
-var word = ["guitars", "bear", "computers"];
+var word = ["guitars", "bear", "computers", "jam", "mouse"];
 //Choose word randomly
 var randNum = Math.floor(Math.random() * word.length);
 var choosenWord = word[randNum];
@@ -11,13 +11,14 @@ var underScore = [];
 
 console.log(choosenWord);
 
-var docUnderScore = document.getElementsByClassName("underScores");
-var docRightGuess = document.getElementsByClassName("rightGuess");
+var docUnderScore = document.getElementById("underScores");
+var docRightGuess = document.getElementById("rightGuess");
+var docWrongGuess = document.getElementById("wrongGuess")
 
 // Main
 // =====================================================
 // Create underScores based on length of word
-var generateUnderscore = () => {
+var generateUnderscore = function () {
     for (var i = 0; i < choosenWord.length; i = i + 1) {
         underScore.push("_");
     }
@@ -33,10 +34,18 @@ document.addEventListener("keypress", (event) => {
     if (choosenWord.indexOf(keyWord) > -1) {
         // add to the rightWords array
         rightWord.push(keyWord);
+
         console.log(rightWord);
 
-        // Replace underScore to RightLetter
+        // Replace underScore with RightLetter
         underScore[choosenWord.indexOf(keyWord)] = keyWord;
+
+        // Find out if the underScores have been filled.. WIN
+        if (underScore.join("") == choosenWord) {
+            alert("You Win!");
+        }
+
+
         underScore[0].innerHTML = underScore.join(" ");
 
         // If user guess is wrong
@@ -46,4 +55,5 @@ document.addEventListener("keypress", (event) => {
         wrongWord.push(keyWord);
         console.log(wrongWord);
     };
+    underScore.innerHTML = generateUnderscore().join("");
 });
