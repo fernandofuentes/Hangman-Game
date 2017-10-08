@@ -46,7 +46,7 @@ document.addEventListener("keypress", (event) => {
         }
 
 
-        underScore[0].innerHTML = underScore.join(" ");
+        underScore[0].innerHTML = underScore.join("_");
 
         // If user guess is wrong
 
@@ -55,5 +55,5 @@ document.addEventListener("keypress", (event) => {
         wrongWord.push(keyWord);
         console.log(wrongWord);
     };
-    underScore.innerHTML = generateUnderscore().join("");
+    underScore.innerHTML = generateUnderscore().join("_");
 });
