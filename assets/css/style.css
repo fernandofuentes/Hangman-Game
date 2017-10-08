@@ -27,13 +27,15 @@ p {
     text-align: center;
 }
 
-#rightGuess {
+#rightGuess,
+#rightGuessText {
     font-size: 30px;
     margin: 0 auto;
     text-align: center;
 }
 
-#wrongGuess {
+#wrongGuess,
+#wrongGuessText {
     font-size: 30px;
     margin: 0 auto;
     text-align: center;
